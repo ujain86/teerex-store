@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Product(props) {
 
@@ -8,14 +8,24 @@ function Product(props) {
         // alert('Added');
         const obj = {
             name: props.product.name,
-            name: props.product.imageURL,
-            name: props.product.price,
+            imageURL: props.product.imageURL,
+            price: props.product.price,
+            qty: 1
         }
 
+        props.cartItems.filter((item) => {
+            if(item.name == obj.name){
+                return item.qty++;
+            }
+            // else {
+            //     return item;
+            // }
+        })
         const newCartItems = props.cartItems;
         newCartItems.push(obj);
         
         props.setCartItems(newCartItems);
+        // console.log(props.cartItems);
         props.setCartCount(props.cartCount + 1);
     };
 
@@ -27,10 +37,6 @@ function Product(props) {
             <p id='price'> Rs {props.product.price} </p>
             <button onClick={handleAdd}>Add To Cart</button>
         </div>
-
-        
-        
-        
     </div>
   )
 }
