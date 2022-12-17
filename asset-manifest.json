@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/teerex-store/static/css/main.b6b11dda.css",
+    "main.js": "/teerex-store/static/js/main.7ebb6707.js",
+    "index.html": "/teerex-store/index.html",
+    "main.b6b11dda.css.map": "/teerex-store/static/css/main.b6b11dda.css.map",
+    "main.7ebb6707.js.map": "/teerex-store/static/js/main.7ebb6707.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6b11dda.css",
+    "static/js/main.7ebb6707.js"
+  ]
+}
