@@ -51,8 +51,19 @@ code {
   display: flex;
 }
 
-.App{
+.products-view{
+  display: flex;
   height: 80%;
+}
+
+.filters{
+  width: 20%;
+  border: 1px solid black;
+  /* height: 70%; */
+}
+
+.App{
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   

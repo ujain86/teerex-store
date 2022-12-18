@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import Navbar from './Navbar';
 import Product from './Product';
 import Cart from './Cart';
+import Filters from './Filters';
 
 function App() {
 
@@ -39,21 +40,23 @@ function App() {
     <div>
       
       <div id='search-input-div'>
-        <input id='search-input' placeholder='Search for products...' onChange={handleSearchInput}></input>
+        <input id='search-input' placeholder='Search for products...' onChange={handleSearchInput} value={searchInput} autoComplete='off' ></input>
       </div>
-      
-      <div className="App">
-      {apiData.filter((val) => {
-        if(searchInput == ''){
-          return val;
-        }
-        else if(val.name.toLowerCase().includes(searchInput.toLowerCase())){
-          return val;
-        }
-      })
-      .map((product, index) => {
-        return <Product product={product} key={index} cartItems={cartItems} setCartItems={setCartItems} cartCount={cartCount} setCartCount={setCartCount} />
-      })}
+      <div className='products-view'>
+        <div className='filters'> <Filters /> </div>
+        <div className="App">
+        {apiData.filter((val) => {
+          if(searchInput == ''){
+            return val;
+          }
+          else if(val.name.toLowerCase().includes(searchInput.toLowerCase())){
+            return val;
+          }
+        })
+        .map((product, index) => {
+          return <Product product={product} key={index} cartItems={cartItems} setCartItems={setCartItems} cartCount={cartCount} setCartCount={setCartCount} />
+        })}
+        </div>
       </div>
     </div>:<Cart cartItems={cartItems} setCartItems={setCartItems} />}
     </div>

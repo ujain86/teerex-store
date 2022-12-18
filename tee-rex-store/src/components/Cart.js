@@ -16,10 +16,13 @@ function Cart(props) {
     props.setCartItems(newCartItems);
   }
 
+  let sum = 0;
+
   console.log('cart: ', props.cartItems)
   return (
     <div>
       {props.cartItems.map((item, index) => {
+        {sum += item.price}
         return (
         <div className='product' key={index} >
           <div> <img src={item.imageURL} alt='product-pic'/> </div>
@@ -27,9 +30,10 @@ function Cart(props) {
             <p> {item.name} </p>
             <p id='price'> Rs {item.price} </p>
             <button onClick={()=>handleDelete(item.name)}>Delete Product</button>
-           </div>
+          </div>
         </div>)
       })}
+     <h1 style={{fontWeight: 'bold', margin: 15}}> Total Price: {sum} </h1>
     </div>
   )
 }
